@@ -11,11 +11,6 @@ public class Evento {
 	
 	private String nome;
 	private Calendar dataValidade;
-	
-	@SuppressWarnings("unused")
-	private Evento() {
-		
-	}
 
 	public Evento(String nome, Calendar dataValidade) throws Exception {
 		validarNome(nome);

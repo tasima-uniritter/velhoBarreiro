@@ -6,7 +6,6 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/Funcionalidades/Evento/US001 Criar Evento.feature", 
-monochrome = true, dryRun = false)
+@CucumberOptions(features = "src/test/resources/Funcionalidades/Evento/US001 Criar Evento.feature")
 public class ExecutaCriarEvento {
 }

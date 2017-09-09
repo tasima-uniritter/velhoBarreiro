@@ -3,6 +3,7 @@ package br.com.velhorbarreiro.validation.evento;
 import java.util.Calendar;
 
 import br.com.velhorbarreiro.modelo.Evento;
+import br.com.velhorbarreiro.util.CalendarUtil;
 import br.com.velhorbarreiro.validation.Validator;
 
 public class EventoValidator implements Validator {
@@ -19,7 +20,9 @@ public class EventoValidator implements Validator {
 	}
 
 	private void validarDataValidadaNaoPodeSerPassada() throws Exception {
-		if (evento.getDataValidade().before(Calendar.getInstance())) {
+		Calendar dataAtual = Calendar.getInstance();
+		CalendarUtil.setInicioDia(dataAtual);
+		if (evento.getDataValidade().before(dataAtual)) {
 			throw new Exception("A data do evento deve ser igual ou maior que a de hoje.");
 		}
 	}

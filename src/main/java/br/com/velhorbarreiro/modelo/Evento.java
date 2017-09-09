@@ -9,13 +9,13 @@ import javax.persistence.Id;
 import org.apache.commons.lang3.StringUtils;
 
 @Entity
-public class Evento {
+public class Evento extends Entidade {
 
 	private static final int NUMERO_MAXIMO_CARACTERES = 150;
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	protected Long id;
 	private String nome;
 	private Calendar dataValidade;
 	
@@ -29,7 +29,11 @@ public class Evento {
 		this.nome = nome;
 		this.dataValidade = dataValidade;
 	}
-
+	
+	public Long getId() {
+		return id;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -71,13 +75,5 @@ public class Evento {
 		if (dataValidade == null) {
 			throw new Exception("Informe a Data de Validade do Evento.");
 		}
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 }

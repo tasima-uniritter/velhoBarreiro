@@ -33,10 +33,15 @@ Funcionalidade: US001 Criar Evento
     Quando salvar o evento
     Então deve exibir a mensagem "A data do evento deve ser igual ou maior que a de hoje."
 
-  Cenário: Deve salvar um evento
+  Esquema do Cenário: Deve salvar um evento
     Dado que quero criar um evento
     E que informo o nome
-    E que informo data de validade
+    E que informo data de validade com valor "<data>"
     Quando salvar o evento
     Então deve salvar o evento
     E não deve exibir mensagem de erro
+
+    Exemplos: 
+      | data   |
+      | hoje   |
+      | futuro |

@@ -4,22 +4,18 @@ import java.util.Calendar;
 
 import br.com.velhorbarreiro.modelo.Evento;
 import br.com.velhorbarreiro.util.CalendarUtil;
-import br.com.velhorbarreiro.validation.Validator;
 
-public class EventoValidator implements Validator {
+public class EventoValidator {
 
-	private Evento evento;
-
-	public EventoValidator(Evento evento) {
-		this.evento = evento;
+	public EventoValidator() {
 	}
 
-	@Override
-	public void validar() throws Exception {
-		validarDataValidadaNaoPodeSerPassada();
+	
+	public void validar(Evento evento) throws Exception {
+		validarDataValidadaNaoPodeSerPassada(evento);
 	}
 
-	private void validarDataValidadaNaoPodeSerPassada() throws Exception {
+	private void validarDataValidadaNaoPodeSerPassada(Evento evento) throws Exception {
 		Calendar dataAtual = Calendar.getInstance();
 		CalendarUtil.setInicioDia(dataAtual);
 		if (evento.getDataValidade().before(dataAtual)) {

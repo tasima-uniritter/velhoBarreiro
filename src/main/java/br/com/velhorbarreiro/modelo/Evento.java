@@ -8,6 +8,8 @@ import javax.persistence.Id;
 
 import org.apache.commons.lang3.StringUtils;
 
+import br.com.velhorbarreiro.modelo.abstratos.Entidade;
+
 @Entity
 public class Evento extends Entidade {
 
@@ -18,17 +20,10 @@ public class Evento extends Entidade {
 	protected Long id;
 	private String nome;
 	private Calendar dataValidade;
+	private Double valor;
 	
-	private Evento() {
+	public Evento() {
 	
-	}
-
-	public Evento(String nome, Calendar dataValidade) throws Exception {
-		this();
-		validarNome(nome);
-		validarDataValidade(dataValidade);
-		this.nome = nome;
-		this.dataValidade = dataValidade;
 	}
 	
 	public Long getId() {
@@ -50,31 +45,44 @@ public class Evento extends Entidade {
 	public void setDataValidade(Calendar dataValidade) {
 		this.dataValidade = dataValidade;
 	}
-
-	private void validarNome(String nome) throws Exception {
-		validarNomePreenchido(nome);
-		validarNomeComNumeroMaximoCaracteres(nome);
+	
+	public void validarDados() throws Exception {
+		validarNome();
+		validarDataValidade();
 	}
 
-	private void validarDataValidade(Calendar dataValidade) throws Exception {
-		validarDataValidadePreenchida(dataValidade);
+	private void validarNome() throws Exception {
+		validarNomePreenchido();
+		validarNomeComNumeroMaximoCaracteres();
 	}
 
-	private void validarNomePreenchido(String nome) throws Exception {
-		if (StringUtils.isBlank(nome)) {
+	private void validarDataValidade() throws Exception {
+		validarDataValidadePreenchida();
+	}
+
+	private void validarNomePreenchido() throws Exception {
+		if (StringUtils.isBlank(this.nome)) {
 			throw new Exception("Informe o Nome.");
 		}
 	}
 
-	private void validarNomeComNumeroMaximoCaracteres(String nome) throws Exception {
-		if (nome.length() > NUMERO_MAXIMO_CARACTERES) {
+	private void validarNomeComNumeroMaximoCaracteres() throws Exception {
+		if (this.nome.length() > NUMERO_MAXIMO_CARACTERES) {
 			throw new Exception("O nome permite no máximo 150 caracteres.");
 		}
 	}
 
-	private void validarDataValidadePreenchida(Calendar dataValidade) throws Exception {
-		if (dataValidade == null) {
+	private void validarDataValidadePreenchida() throws Exception {
+		if (this.dataValidade == null) {
 			throw new Exception("Informe a Data de Validade do Evento.");
 		}
+	}
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
 	}
 }

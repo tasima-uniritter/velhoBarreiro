@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import br.com.velhorbarreiro.modelo.Entidade;
+import br.com.velhorbarreiro.modelo.abstratos.Entidade;
 
 public class GerenciadorEntidade {
 	private Entidade entidade;

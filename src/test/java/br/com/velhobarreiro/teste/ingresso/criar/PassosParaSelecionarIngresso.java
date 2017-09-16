@@ -6,7 +6,7 @@ import br.com.velhobarreiro.teste.passosteste.PassosParaTeste;
 import br.com.velhorbarreiro.enums.CategoriaIngressoEnum;
 import cucumber.api.java.Before;
 import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.Ent„o;
+import cucumber.api.java.pt.Ent√£o;
 import cucumber.api.java.pt.Quando;
 
 public class PassosParaSelecionarIngresso extends PassosParaTeste {
@@ -35,7 +35,7 @@ public class PassosParaSelecionarIngresso extends PassosParaTeste {
 		categoriaIngressoEnum = CategoriaIngressoEnum.valueOf(descricaoCategoriaIngresso);
 	}
 
-	@Ent„o("^o mesmo deve ter o valor \"([^\"]*)\"$")
+	@Ent√£o("^o mesmo deve ter o valor \"([^\"]*)\"$")
 	public void o_mesmo_deve_ter_o_valor(Double valor) throws Throwable {
 		Assert.assertEquals(valor, categoriaIngressoEnum.getValor());
 	}

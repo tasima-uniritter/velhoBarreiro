@@ -20,6 +20,7 @@ public class Evento extends Entidade {
 	private Calendar dataValidade;
 	
 	private Evento() {
+	
 	}
 
 	public Evento(String nome, Calendar dataValidade) throws Exception {

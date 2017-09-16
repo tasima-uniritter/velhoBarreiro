@@ -1,21 +1,18 @@
 package br.com.velhorbarreiro.repository;
 
-import br.com.velhorbarreiro.modelo.Evento;
+import br.com.velhorbarreiro.modelo.Entidade;
 import br.com.velhorbarreiro.repository.gerenciador.GerenciadorEntidade;
 import br.com.velhorbarreiro.repository.inteface.RepositoryInclusao;
 
 public class EventoRepository implements RepositoryInclusao {
-
-	private Evento evento;
 	
-	public EventoRepository(Evento evento) {
-		super();
-		this.evento = evento;
+	public EventoRepository() {
+		
 	}
 
 	@Override
-	public void inclui() {
-		GerenciadorEntidade gerenciadorInclusao = new GerenciadorEntidade(this.evento);
+	public void inclui(Entidade entidade) {
+		GerenciadorEntidade gerenciadorInclusao = new GerenciadorEntidade(entidade);
 		gerenciadorInclusao.incluir();
 	}
 }

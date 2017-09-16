@@ -11,7 +11,7 @@ import br.com.velhorbarreiro.service.EventoService;
 import br.com.velhorbarreiro.util.CalendarUtil;
 import cucumber.api.java.Before;
 import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.Então;
+import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 
 public class PassosParaCriarEvento extends PassosParaTeste {
@@ -53,7 +53,7 @@ public class PassosParaCriarEvento extends PassosParaTeste {
 		}
 	}
 
-	@Então("^deve exibir a mensagem de obrigatoriedade \"(.*?)\"$")
+	@Entao("^deve exibir a mensagem de obrigatoriedade \"(.*?)\"$")
 	public void deve_exibir_a_mensagem_de_obrigatoriedade(String mensagemEsperada) throws Throwable {
 		Assert.assertEquals(mensagemEsperada, mensagemErro);
 	}
@@ -77,7 +77,7 @@ public class PassosParaCriarEvento extends PassosParaTeste {
 		eventoDTO.setNome(builderNome.toString());
 	}
 
-	@Então("^deve exibir a mensagem \"(.*?)\"$")
+	@Entao("^deve exibir a mensagem \"(.*?)\"$")
 	public void deve_exibir_a_mensagem(String menssagemEsperada) throws Throwable {
 		Assert.assertEquals(menssagemEsperada, mensagemErro);
 	}
@@ -89,12 +89,12 @@ public class PassosParaCriarEvento extends PassosParaTeste {
 		eventoDTO.setDataValidade(data);
 	}
 
-	@Então("^deve salvar o evento$")
+	@Entao("^deve salvar o evento$")
 	public void deve_salvar_o_evento() throws Throwable {
 		Assert.assertNotNull(eventoCriado.getId());
 	}
 
-	@Então("^não deve exibir mensagem de erro$")
+	@Entao("^não deve exibir mensagem de erro$")
 	public void nao_deve_exibir_mensagem_de_erro() throws Throwable {
 		Assert.assertNull(mensagemErro);
 	}

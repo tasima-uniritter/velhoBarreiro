@@ -11,7 +11,7 @@ import br.com.velhorbarreiro.service.EventoService;
 import br.com.velhorbarreiro.util.CalendarUtil;
 import cucumber.api.java.Before;
 import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.Ent„o;
+import cucumber.api.java.pt.Ent√£o;
 import cucumber.api.java.pt.Quando;
 
 public class PassosParaCriarEvento extends PassosParaTeste {
@@ -31,8 +31,8 @@ public class PassosParaCriarEvento extends PassosParaTeste {
 		eventoDTO = new EventoDTO();
 	}
 
-	@Dado("^que n„o informo o nome$")
-	public void que_n„o_informo_o_nome() throws Throwable {
+	@Dado("^que n√£o informo o nome$")
+	public void que_n√£o_informo_o_nome() throws Throwable {
 		eventoDTO.setNome(null);
 	}
 
@@ -53,13 +53,13 @@ public class PassosParaCriarEvento extends PassosParaTeste {
 		}
 	}
 
-	@Ent„o("^deve exibir a mensagem de obrigatoriedade \"(.*?)\"$")
+	@Ent√£o("^deve exibir a mensagem de obrigatoriedade \"(.*?)\"$")
 	public void deve_exibir_a_mensagem_de_obrigatoriedade(String mensagemEsperada) throws Throwable {
 		Assert.assertEquals(mensagemEsperada, mensagemErro);
 	}
 
-	@Dado("^que n„o informo a data de validade$")
-	public void que_n„o_informo_a_data_de_validade() throws Throwable {
+	@Dado("^que n√£o informo a data de validade$")
+	public void que_nao_informo_a_data_de_validade() throws Throwable {
 		eventoDTO.setDataValidade(null);
 	}
 
@@ -77,7 +77,7 @@ public class PassosParaCriarEvento extends PassosParaTeste {
 		eventoDTO.setNome(builderNome.toString());
 	}
 
-	@Ent„o("^deve exibir a mensagem \"(.*?)\"$")
+	@Ent√£o("^deve exibir a mensagem \"(.*?)\"$")
 	public void deve_exibir_a_mensagem(String menssagemEsperada) throws Throwable {
 		Assert.assertEquals(menssagemEsperada, mensagemErro);
 	}
@@ -89,13 +89,13 @@ public class PassosParaCriarEvento extends PassosParaTeste {
 		eventoDTO.setDataValidade(data);
 	}
 
-	@Ent„o("^deve salvar o evento$")
+	@Ent√£o("^deve salvar o evento$")
 	public void deve_salvar_o_evento() throws Throwable {
 		Assert.assertNotNull(eventoCriado.getId());
 	}
 
-	@Ent„o("^n„o deve exibir mensagem de erro$")
-	public void n„o_deve_exibir_mensagem_de_erro() throws Throwable {
+	@Ent√£o("^n√£o deve exibir mensagem de erro$")
+	public void nao_deve_exibir_mensagem_de_erro() throws Throwable {
 		Assert.assertNull(mensagemErro);
 	}
 

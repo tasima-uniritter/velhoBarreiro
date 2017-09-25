@@ -14,7 +14,7 @@ public class FabricaEvento {
 	public static Evento criar(String nome, Calendar dataValidade) throws Exception {
 		return new BuilderEvento()
 				.comNome(nome)
-				.paraDataDeValidade(dataValidade)
+				.comDataDeValidade(dataValidade)
 				.criar();
 	}
 }

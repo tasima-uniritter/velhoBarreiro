@@ -1,16 +1,19 @@
 package br.com.velhorbarreiro.modelo.abstratos;
 
 public abstract class Cliente {
-	
+
+	protected Double percentualDesconto;
 	private Double valorPago;
 
-	public abstract void calcularDesconto(Double valorEvento);
+	public void calcularDesconto(Double valorEvento) {
+		valorPago = (valorEvento * percentualDesconto);
+	}
+	
+	public Double getPercentualDesconto() {
+		return percentualDesconto;
+	}
 
 	public Double getValorPago() {
 		return valorPago;
 	}
-
-	public void setValorPago(Double valorPago) {
-		this.valorPago = valorPago;
-	}	
 }

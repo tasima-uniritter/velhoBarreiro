@@ -31,8 +31,8 @@ public class PassosParaCriarEvento extends PassosParaTeste {
 		eventoDTO = new EventoDTO();
 	}
 
-	@Dado("^que não informo o nome$")
-	public void que_não_informo_o_nome() throws Throwable {
+	@Dado("^que nao informo o nome$")
+	public void que_nao_informo_o_nome() throws Throwable {
 		eventoDTO.setNome(null);
 	}
 
@@ -58,7 +58,7 @@ public class PassosParaCriarEvento extends PassosParaTeste {
 		Assert.assertEquals(mensagemEsperada, mensagemErro);
 	}
 
-	@Dado("^que não informo a data de validade$")
+	@Dado("^que nao informo a data de validade$")
 	public void que_nao_informo_a_data_de_validade() throws Throwable {
 		eventoDTO.setDataValidade(null);
 	}
@@ -94,7 +94,7 @@ public class PassosParaCriarEvento extends PassosParaTeste {
 		Assert.assertNotNull(eventoCriado.getId());
 	}
 
-	@Entao("^não deve exibir mensagem de erro$")
+	@Entao("^nao deve exibir mensagem de erro$")
 	public void nao_deve_exibir_mensagem_de_erro() throws Throwable {
 		Assert.assertNull(mensagemErro);
 	}

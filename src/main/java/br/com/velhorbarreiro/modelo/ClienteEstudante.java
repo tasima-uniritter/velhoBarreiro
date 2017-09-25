@@ -4,9 +4,7 @@ import br.com.velhorbarreiro.modelo.abstratos.Cliente;
 
 public class ClienteEstudante extends Cliente {
 
-	@Override
-	public void calcularDesconto(Double valorEvento) {
-		super.setValorPago(valorEvento * 0.5);
+	public ClienteEstudante() {
+		super.percentualDesconto = 0.5;
 	}
-
 }

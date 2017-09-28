@@ -3,4 +3,5 @@ encoding//src/main/java/br/com/velhorbarreiro/enums/CategoriaIngressoEnum.java=U
 encoding//src/test/java/br/com/velhobarreiro/teste/desconto/gerenciar/PassosParaGerenciarDescontos.java=UTF-8
 encoding//src/test/java/br/com/velhobarreiro/teste/evento/criar/ExecutaCriarEvento.java=UTF-8
 encoding//src/test/java/br/com/velhobarreiro/teste/evento/criar/PassosParaCriarEvento.java=UTF-8
-encoding//src/test/java/br/com/velhobarreiro/teste/ingresso/criar/PassosParaSelecionarIngresso.java=UTF-8
+encoding//src/test/java/br/com/velhobarreiro/teste/ingresso/disponibilizar/PassosParaDisponibilizarIngresso.java=UTF-8
+encoding//src/test/java/br/com/velhobarreiro/teste/ingresso/selecionar/PassosParaSelecionarIngresso.java=UTF-8

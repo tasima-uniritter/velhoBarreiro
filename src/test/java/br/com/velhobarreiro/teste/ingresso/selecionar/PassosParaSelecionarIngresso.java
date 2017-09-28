@@ -1,4 +1,4 @@
-package br.com.velhobarreiro.teste.ingresso.criar;
+package br.com.velhobarreiro.teste.ingresso.selecionar;
 
 import org.junit.Assert;
 

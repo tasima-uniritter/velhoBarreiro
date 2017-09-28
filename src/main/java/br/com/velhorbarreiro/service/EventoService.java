@@ -13,7 +13,7 @@ public class EventoService {
 
 	}
 
-	public Evento criar(EventoDTO eventoDTO) throws Exception {
+	public Evento incluir(EventoDTO eventoDTO) throws Exception {
 		Evento evento = FabricaEvento.criar(eventoDTO.getNome(), eventoDTO.getDataValidade());
 		EventoValidator validator = new EventoValidator();
 		validator.validar(evento);

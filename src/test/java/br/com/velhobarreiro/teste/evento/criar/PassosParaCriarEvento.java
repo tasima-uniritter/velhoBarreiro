@@ -47,7 +47,7 @@ public class PassosParaCriarEvento extends PassosParaTeste {
 	public void salvar_o_evento() throws Throwable {
 		try {
 			EventoService eventoService = new EventoService();
-			eventoCriado = eventoService.criar(eventoDTO);
+			eventoCriado = eventoService.incluir(eventoDTO);
 		} catch (Exception e) {
 			mensagemErro = e.getMessage();
 		}

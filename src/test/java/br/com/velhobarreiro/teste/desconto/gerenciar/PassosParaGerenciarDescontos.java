@@ -24,7 +24,7 @@ public class PassosParaGerenciarDescontos extends PassosParaTeste {
 	public void prepararCenario() {
 		super.prepararCenario();
 	}
-
+	
 	@Dado("^que tenho um cliente do tipo \"([^\"]*)\"$")
 	public void que_tenho_um_cliente_do_tipo(String tipoCliente) throws Throwable {
 		switch (tipoCliente) {

@@ -9,6 +9,8 @@ public abstract class PassosParaTeste {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("minha-persistence-unit");
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
+		em.createQuery(" delete PeriodoVendaIngressoCategoriaIngresso ").executeUpdate();
+		em.createQuery(" delete PeriodoVendaIngresso ").executeUpdate();
 		em.createQuery(" delete Evento ").executeUpdate();
 		em.getTransaction().commit();
 		em.close();

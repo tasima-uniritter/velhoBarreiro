@@ -1,5 +1,7 @@
 package br.com.velhorbarreiro.service;
 
+import java.util.List;
+
 import br.com.velhorbarreiro.enums.CategoriaIngressoEnum;
 import br.com.velhorbarreiro.modelo.PeriodoVendaIngresso;
 import br.com.velhorbarreiro.modelo.PeriodoVendaIngressoCategoriaIngresso;
@@ -19,8 +21,13 @@ public class PeriodoVendaIngressoCategoriaIngressoService {
 				periodoVendaIngresso, categoriaIngressoEnum);
 
 		RepositoryInclusao repositoryInclusao = new PeriodoVendaIngressoCategoriaIngressoRepository();
-		repositoryInclusao.inclui(periodoVendaIngresso);
+		repositoryInclusao.inclui(periodoVendaIngressoCategoriaIngresso);
 
 		return periodoVendaIngressoCategoriaIngresso;
+	}
+	
+	public List<PeriodoVendaIngressoCategoriaIngresso> lista(PeriodoVendaIngresso periodoVendaIngresso) {
+		PeriodoVendaIngressoCategoriaIngressoRepository repository = new PeriodoVendaIngressoCategoriaIngressoRepository();
+		return repository.lista(periodoVendaIngresso);
 	}
 }

@@ -12,7 +12,7 @@ public class EventoRepository implements RepositoryInclusao {
 
 	@Override
 	public void inclui(Entidade entidade) {
-		GerenciadorEntidade gerenciadorInclusao = new GerenciadorEntidade(entidade);
-		gerenciadorInclusao.incluir();
+		GerenciadorEntidade gerenciadorInclusao = new GerenciadorEntidade();
+		gerenciadorInclusao.incluir(entidade);
 	}
 }

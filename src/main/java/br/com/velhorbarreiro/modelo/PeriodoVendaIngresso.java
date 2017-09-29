@@ -64,4 +64,16 @@ public class PeriodoVendaIngresso extends Entidade {
 		this.listaCategoriaIngresso = listaCategoriaIngresso;
 	}
 
+	public boolean possuiEvento() {
+		return this.evento != null;
+	}
+
+	public boolean possuiDataInicio() {
+		return this.dataInicio != null;
+	}
+
+	public boolean possuiDataFim() {
+		return this.dataFim != null;
+	}
+
 }

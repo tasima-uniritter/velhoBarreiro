@@ -6,6 +6,6 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/Funcionalidades/Ingresso/US003 Disponibilizar Ingresso.feature")
+@CucumberOptions(features = "src/test/resources/Funcionalidades/Ingresso/US003 Disponibilizar Ingresso.feature", strict = true)
 public class ExecutaDisponibilizarIngresso {
 }

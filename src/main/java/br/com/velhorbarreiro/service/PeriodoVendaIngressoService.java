@@ -8,7 +8,9 @@ import br.com.velhorbarreiro.enums.CategoriaIngressoEnum;
 import br.com.velhorbarreiro.fabrica.FabricaPeriodoVendaIngresso;
 import br.com.velhorbarreiro.modelo.PeriodoVendaIngresso;
 import br.com.velhorbarreiro.modelo.PeriodoVendaIngressoCategoriaIngresso;
-import br.com.velhorbarreiro.repository.gerenciador.GerenciadorEntidade;
+import br.com.velhorbarreiro.repository.PeriodoVendaIngressoRepository;
+import br.com.velhorbarreiro.repository.inteface.RepositoryConsulta;
+import br.com.velhorbarreiro.repository.inteface.RepositoryInclusao;
 
 public class PeriodoVendaIngressoService {
 
@@ -16,23 +18,38 @@ public class PeriodoVendaIngressoService {
 
 	}
 
-	public PeriodoVendaIngresso salvar(PeriodoVendaIngressoDTO periodoVendaIngressoDTO) {
+	public PeriodoVendaIngresso salvar(PeriodoVendaIngressoDTO periodoVendaIngressoDTO) throws Exception {
 		PeriodoVendaIngresso periodoVendaIngresso = null;
-		if (periodoVendaIngressoDTO.jaPersistido()) {
+		if (!periodoVendaIngressoDTO.jaPersistido()) {
 			periodoVendaIngresso = incluir(periodoVendaIngressoDTO);
 		} else {
-			//Consultar Periodo
-			incluirCategoriaDeIngresso(periodoVendaIngresso, periodoVendaIngressoDTO.getListaCategoriaIngressoEnum());
+			RepositoryConsulta rc = new PeriodoVendaIngressoRepository();
+			periodoVendaIngresso = (PeriodoVendaIngresso) rc.consulta(periodoVendaIngressoDTO.getId());
+			validarCategoriaExistente(periodoVendaIngresso, periodoVendaIngressoDTO);
 		}
+		List<PeriodoVendaIngressoCategoriaIngresso> listaCategoriasIncluidas = incluirCategoriaDeIngresso(
+				periodoVendaIngresso, periodoVendaIngressoDTO.getListaCategoriaIngressoEnum());
+		periodoVendaIngresso.getListaCategoriaIngresso().addAll(listaCategoriasIncluidas);
 		return periodoVendaIngresso;
-		
 	}
 
-	private PeriodoVendaIngresso incluir(PeriodoVendaIngressoDTO periodoVendaIngressoDTO) {
+	private void validarCategoriaExistente(PeriodoVendaIngresso periodoVendaIngresso,
+			PeriodoVendaIngressoDTO periodoVendaIngressoDTO) throws Exception {
+		
+		PeriodoVendaIngressoCategoriaIngressoService periodoCategoriaService = new PeriodoVendaIngressoCategoriaIngressoService();
+		List<PeriodoVendaIngressoCategoriaIngresso> listaPeriodoVendaIngressoCategoria = periodoCategoriaService.lista(periodoVendaIngresso);
+		
+		if (listaPeriodoVendaIngressoCategoria.stream().anyMatch(
+				x -> periodoVendaIngressoDTO.getListaCategoriaIngressoEnum().contains(x.getCategoriaIngressoEnum()))) {
+			throw new Exception("Categoria de ingresso já cadastrado para o período de venda.");
+		}
+	}
+
+	private PeriodoVendaIngresso incluir(PeriodoVendaIngressoDTO periodoVendaIngressoDTO) throws Exception {
 		PeriodoVendaIngresso periodoVendaIngresso = FabricaPeriodoVendaIngresso
-				.criarParaIncluir(periodoVendaIngressoDTO);
-		GerenciadorEntidade gerenciadorEntidade = new GerenciadorEntidade(periodoVendaIngresso);
-		gerenciadorEntidade.incluir();
+				.criarParaSalvar(periodoVendaIngressoDTO);
+		RepositoryInclusao repositoryInclusao = new PeriodoVendaIngressoRepository();
+		repositoryInclusao.inclui(periodoVendaIngresso);
 		return periodoVendaIngresso;
 	}
 

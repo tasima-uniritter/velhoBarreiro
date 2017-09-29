@@ -35,7 +35,48 @@ public class BuilderPeriodoVendaIngresso {
 		return this;
 	}
 
-	public PeriodoVendaIngresso criar() {
+	public BuilderPeriodoVendaIngresso comId(Long id) {
+		this.periodoVendaIngresso.setId(id);
+		return this;
+	}
+	
+	public BuilderPeriodoVendaIngresso comCategoriasDeIngresso(List<PeriodoVendaIngressoCategoriaIngresso> listaCategoriaIngresso) {
+		this.periodoVendaIngresso.setListaCategoriaIngresso(listaCategoriaIngresso);
+		return this;
+	}
+	
+	public PeriodoVendaIngresso criar() throws Exception {
+		validarEventoSelecionado();
+		validarDataInicioPreenchida();
+		validarDataFimlPreenchida();
+		validarDataInicioAnteriorDataFim();
 		return this.periodoVendaIngresso;
 	}
+
+	private void validarEventoSelecionado() throws Exception {
+		if (!this.periodoVendaIngresso.possuiEvento()) {
+			throw new Exception("Informe o evento.");
+		}
+	}
+
+	private void validarDataInicioPreenchida() throws Exception {
+		if (!this.periodoVendaIngresso.possuiDataInicio()) {
+			throw new Exception("Informe a data de início.");
+		}
+	}
+
+	private void validarDataFimlPreenchida() throws Exception {
+		if (!this.periodoVendaIngresso.possuiDataFim()) {
+			throw new Exception("Informe a data de fim.");
+		}
+	}
+
+	private void validarDataInicioAnteriorDataFim() throws Exception {
+		Calendar dataInicio = this.periodoVendaIngresso.getDataInicio();
+		Calendar dataFim = this.periodoVendaIngresso.getDataFim();
+		if (dataFim.before(dataInicio)) {
+			throw new Exception("A data de início de venda deve ser inferior a data de fim.");
+		}
+	}
+
 }

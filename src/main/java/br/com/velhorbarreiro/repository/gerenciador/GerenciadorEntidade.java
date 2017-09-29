@@ -7,15 +7,14 @@ import javax.persistence.Persistence;
 import br.com.velhorbarreiro.modelo.abstratos.Entidade;
 
 public class GerenciadorEntidade {
-	private Entidade entidade;
+	EntityManagerFactory emf = null;
+	EntityManager em = null;
 
-	public GerenciadorEntidade(Entidade entidade) {
-		this.entidade = entidade;
+	public GerenciadorEntidade() {
+
 	}
 
-	public void incluir() {
-		EntityManagerFactory emf = null;
-		EntityManager em = null;
+	public void incluir(Entidade entidade) {
 		try {
 			// Criar EntityManagerFactory
 			emf = Persistence.createEntityManagerFactory("minha-persistence-unit");
@@ -34,5 +33,16 @@ public class GerenciadorEntidade {
 			em.close();
 			emf.close();
 		}
+	}
+
+	public EntityManager getEntityManager() {
+			emf = Persistence.createEntityManagerFactory("minha-persistence-unit");
+			em = emf.createEntityManager();
+			return em;
+	}
+	
+	public void fecharConexao() {
+		em.close();
+		emf.close();
 	}
 }

@@ -17,6 +17,10 @@ public class PeriodoVendaIngressoCategoriaIngresso extends Entidade {
 	@ManyToOne
 	private PeriodoVendaIngresso periodoVendaIngresso;
 	private CategoriaIngressoEnum categoriaIngressoEnum;
+	
+	public PeriodoVendaIngressoCategoriaIngresso() {
+		
+	}
 
 	public PeriodoVendaIngressoCategoriaIngresso(PeriodoVendaIngresso periodoVendaIngresso,
 			CategoriaIngressoEnum categoriaIngressoEnum) {

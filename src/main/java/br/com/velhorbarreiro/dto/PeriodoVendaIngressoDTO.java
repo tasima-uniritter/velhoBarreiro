@@ -1,5 +1,6 @@
 package br.com.velhorbarreiro.dto;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -13,6 +14,10 @@ public class PeriodoVendaIngressoDTO {
 	private Calendar dataFim;
 	private Evento evento;
 	private List<CategoriaIngressoEnum> listaCategoriaIngressoEnum;
+	
+	public PeriodoVendaIngressoDTO() {
+		this.listaCategoriaIngressoEnum = new ArrayList<>();
+	}
 
 	public Long getId() {
 		return id;

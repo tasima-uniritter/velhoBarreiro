@@ -11,6 +11,7 @@ import br.com.velhorbarreiro.modelo.PeriodoVendaIngressoCategoriaIngresso;
 import br.com.velhorbarreiro.repository.PeriodoVendaIngressoRepository;
 import br.com.velhorbarreiro.repository.inteface.RepositoryConsulta;
 import br.com.velhorbarreiro.repository.inteface.RepositoryInclusao;
+import br.com.velhorbarreiro.validation.periodovendaingresso.PeriodoVendaIngressoValidator;
 
 public class PeriodoVendaIngressoService {
 
@@ -25,7 +26,8 @@ public class PeriodoVendaIngressoService {
 		} else {
 			RepositoryConsulta rc = new PeriodoVendaIngressoRepository();
 			periodoVendaIngresso = (PeriodoVendaIngresso) rc.consulta(periodoVendaIngressoDTO.getId());
-			validarCategoriaExistente(periodoVendaIngresso, periodoVendaIngressoDTO);
+			PeriodoVendaIngressoValidator validator = new PeriodoVendaIngressoValidator();
+			validator.validar(periodoVendaIngresso, periodoVendaIngressoDTO);
 		}
 		List<PeriodoVendaIngressoCategoriaIngresso> listaCategoriasIncluidas = incluirCategoriaDeIngresso(
 				periodoVendaIngresso, periodoVendaIngressoDTO.getListaCategoriaIngressoEnum());
@@ -33,17 +35,7 @@ public class PeriodoVendaIngressoService {
 		return periodoVendaIngresso;
 	}
 
-	private void validarCategoriaExistente(PeriodoVendaIngresso periodoVendaIngresso,
-			PeriodoVendaIngressoDTO periodoVendaIngressoDTO) throws Exception {
-		
-		PeriodoVendaIngressoCategoriaIngressoService periodoCategoriaService = new PeriodoVendaIngressoCategoriaIngressoService();
-		List<PeriodoVendaIngressoCategoriaIngresso> listaPeriodoVendaIngressoCategoria = periodoCategoriaService.lista(periodoVendaIngresso);
-		
-		if (listaPeriodoVendaIngressoCategoria.stream().anyMatch(
-				x -> periodoVendaIngressoDTO.getListaCategoriaIngressoEnum().contains(x.getCategoriaIngressoEnum()))) {
-			throw new Exception("Categoria de ingresso ja cadastrado para o periodo de venda.");
-		}
-	}
+	
 
 	private PeriodoVendaIngresso incluir(PeriodoVendaIngressoDTO periodoVendaIngressoDTO) throws Exception {
 		PeriodoVendaIngresso periodoVendaIngresso = FabricaPeriodoVendaIngresso

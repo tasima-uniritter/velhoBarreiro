@@ -7,10 +7,10 @@ Funcionalidade: US004 Disponibilizar Desconto
 
   Esquema do Cenario: US004 Deve disponibilizar desconto de acordo com o tipo de cliente
     Dado que tenho um cliente do tipo "<tipoCliente>"
-    E que o valor do ingresso é "100" pilas
+    E que o valor do ingresso e "100" pilas
     Quando calcular o desconto
-    Então o cliente ganhara "<percentualDesconto>"
-    Então o cliente pagara o valor "<valorPago>"
+    Entao o cliente ganhara "<percentualDesconto>"
+    E o cliente pagara o valor "<valorPago>"
 
     Exemplos: 
       | tipoCliente      | percentualDesconto | valorPago |

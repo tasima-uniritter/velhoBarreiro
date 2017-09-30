@@ -17,9 +17,6 @@ public class Evento extends Entidade {
 	private String nome;
 	private Calendar dataValidade;
 	
-	public Evento() {
-	
-	}
 	
 	public Long getId() {
 		return id;

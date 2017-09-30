@@ -11,7 +11,7 @@ import br.com.velhorbarreiro.modelo.ClienteSilver;
 import br.com.velhorbarreiro.modelo.abstratos.Cliente;
 import cucumber.api.java.Before;
 import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.Então;
+import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 
 public class PassosParaGerenciarDescontos extends PassosParaTeste {
@@ -45,8 +45,8 @@ public class PassosParaGerenciarDescontos extends PassosParaTeste {
 		}
 	}
 
-	@Dado("^que o valor do ingresso é \"([^\"]*)\" pilas$")
-	public void que_o_valor_do_ingresso_é_pilas(Double valorEvento) throws Throwable {
+	@Dado("^que o valor do ingresso e \"([^\"]*)\" pilas$")
+	public void que_o_valor_do_ingresso_e_pilas(Double valorEvento) throws Throwable {
 		this.valorEvento = valorEvento;
 	}
 
@@ -55,12 +55,12 @@ public class PassosParaGerenciarDescontos extends PassosParaTeste {
 		cliente.calcularDesconto(valorEvento);
 	}
 
-	@Então("^o cliente ganhara \"([^\"]*)\"$")
+	@Entao("^o cliente ganhara \"([^\"]*)\"$")
 	public void o_cliente_ganhara(String percentualDesconto) throws Throwable {
 		Assert.assertEquals(percentualDesconto, cliente.getPercentualDesconto().toString());
 	}
 
-	@Então("^o cliente pagara o valor \"([^\"]*)\"$")
+	@Entao("^o cliente pagara o valor \"([^\"]*)\"$")
 	public void o_cliente_pagara_o_valor(String valorPago) throws Throwable {
 		Assert.assertEquals(new Double(valorPago), cliente.getValorPago());
 	}

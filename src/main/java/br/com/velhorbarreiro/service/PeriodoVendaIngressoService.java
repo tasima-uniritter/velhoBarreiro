@@ -41,7 +41,7 @@ public class PeriodoVendaIngressoService {
 		
 		if (listaPeriodoVendaIngressoCategoria.stream().anyMatch(
 				x -> periodoVendaIngressoDTO.getListaCategoriaIngressoEnum().contains(x.getCategoriaIngressoEnum()))) {
-			throw new Exception("Categoria de ingresso já cadastrado para o período de venda.");
+			throw new Exception("Categoria de ingresso ja cadastrado para o periodo de venda.");
 		}
 	}
 

@@ -19,12 +19,12 @@ Funcionalidade: US001 Criar Evento
     Quando salvar o evento
     Entao deve exibir a mensagem de obrigatoriedade "Informe a Data de Validade do Evento."
 
-  Cenario: Deve validar se o campo nome possui no m·ximo 150 caracteres
+  Cenario: Deve validar se o campo nome possui no m√°ximo 150 caracteres
     Dado que quero criar um evento
     E que informo um nome com mais de 150 caracteres
     E que informo data de validade
     Quando salvar o evento
-    Entao deve exibir a mensagem "O nome permite no m·ximo 150 caracteres."
+    Entao deve exibir a mensagem "O nome permite no maximo 150 caracteres."
 
   Cenario: Deve validar se a data de validade menor que a data atual
     Dado que quero criar um evento

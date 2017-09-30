@@ -47,7 +47,7 @@ public class BuilderEvento {
 
 	private void validarNomeComNumeroMaximoCaracteres(String nome) throws Exception {
 		if (nome.length() > NUMERO_MAXIMO_CARACTERES) {
-			throw new Exception("O nome permite no máximo " + NUMERO_MAXIMO_CARACTERES + " caracteres.");
+			throw new Exception("O nome permite no maximo " + NUMERO_MAXIMO_CARACTERES + " caracteres.");
 		}
 	}
 	

@@ -61,7 +61,7 @@ public class BuilderPeriodoVendaIngresso {
 
 	private void validarDataInicioPreenchida() throws Exception {
 		if (!this.periodoVendaIngresso.possuiDataInicio()) {
-			throw new Exception("Informe a data de início.");
+			throw new Exception("Informe a data de inicio.");
 		}
 	}
 
@@ -75,7 +75,7 @@ public class BuilderPeriodoVendaIngresso {
 		Calendar dataInicio = this.periodoVendaIngresso.getDataInicio();
 		Calendar dataFim = this.periodoVendaIngresso.getDataFim();
 		if (dataFim.before(dataInicio)) {
-			throw new Exception("A data de início de venda deve ser inferior a data de fim.");
+			throw new Exception("A data de inicio de venda deve ser inferior a data de fim.");
 		}
 	}
 

@@ -2,7 +2,7 @@
 # encoding: iso-8859-1
 Funcionalidade: US004 Disponibilizar Desconto
   Como gestor de eventos
-  Quero  disponibilizar descontos em ingressos conforme a lei e também para o meu programa de associados
+  Quero  disponibilizar descontos em ingressos conforme a lei e tambem para o meu programa de associados
   Para que eu possa atender a lei e dar vantagens para meus associados
 
   Esquema do Cenario: US004 Deve disponibilizar desconto de acordo com o tipo de cliente

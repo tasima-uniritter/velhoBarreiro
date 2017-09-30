@@ -2,16 +2,16 @@
 # encoding: iso-8859-1
 Funcionalidade: US002 Selecionar Ingresso
 	Como gestor de eventos
-	Quero ter inúmeros tipos de ingresso
-	Para que eu possa atingir vários níveis de público
+	Quero ter inumeros tipos de ingresso
+	Para que eu possa atingir varios niveis de publico
 	
 	Contexto: 
 		Dado que sou gestor do evento
 
-	Esquema do Cenário: Deve selecionar o ingresso
+	Esquema do Cenario: Deve selecionar o ingresso
 		Dado que quero disponibilizar um ingresso "<categoria>"
 		Quando selecionar o ingresso
-		Então o mesmo deve ter o valor "<valor>"
+		Entao o mesmo deve ter o valor "<valor>"
 		
 		Exemplos:
 		| categoria   | valor |

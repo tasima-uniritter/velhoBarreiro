@@ -5,3 +5,7 @@ encoding//src/test/java/br/com/velhobarreiro/teste/evento/criar/ExecutaCriarEven
 encoding//src/test/java/br/com/velhobarreiro/teste/evento/criar/PassosParaCriarEvento.java=UTF-8
 encoding//src/test/java/br/com/velhobarreiro/teste/ingresso/disponibilizar/PassosParaDisponibilizarIngresso.java=UTF-8
 encoding//src/test/java/br/com/velhobarreiro/teste/ingresso/selecionar/PassosParaSelecionarIngresso.java=UTF-8
+encoding//src/test/resources/Funcionalidades/Desconto/US004\ Disponibilizar\ Desconto.feature=UTF-8
+encoding//src/test/resources/Funcionalidades/Evento/US001\ Criar\ Evento.feature=UTF-8
+encoding//src/test/resources/Funcionalidades/Ingresso/US002\ Selecionar\ Ingresso.feature=UTF-8
+encoding//src/test/resources/Funcionalidades/Ingresso/US003\ Disponibilizar\ Ingresso.feature=UTF-8
